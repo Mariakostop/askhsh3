@@ -18,13 +18,8 @@ def on_connect(client, userdata, flags, rc):
 
 def on_publish(client, userdata, mid):
     print("Message published to MQTT topic")
-    send_http_request()
-
-# Send HTTP request
-def send_http_request():
     response = requests.request("POST", url, headers=headers, data=str(payload))
-    print("HTTP response: " + str(response.status_code))
-    
+    print("HTTP response: " + str(response.status_code))  
 
 # Create MQTT client
 client = mqtt.Client()
